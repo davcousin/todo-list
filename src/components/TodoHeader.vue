@@ -17,6 +17,7 @@
         :text="todo.text"
         :completed="todo.completed"
         v-on:todoCompleteChange="todoCompleteChange"
+        v-on:deleteTodo="deleteTodo"
       />
     </ul>
 
@@ -100,6 +101,16 @@ export default {
         }
       });
       this.saveStateInLocalStorage();
+    },
+
+    deleteTodo: function(todoData) {
+      this.todos.forEach((todo, index) => {
+        if (todo.text === todoData.text) {
+          //this.todos[index].completed = !todo.completed;
+          this.todos.splice(index, 1);
+        }
+      });
+      this.saveStateInLocalStorage();
     }
   }
 };
@@ -115,6 +126,7 @@ export default {
 
 input {
   width: 200px;
+  border-style: solid;
 }
 
 #add-todo-btn {
