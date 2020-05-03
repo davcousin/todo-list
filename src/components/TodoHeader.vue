@@ -1,18 +1,14 @@
 <template>
   <div class="todo">
-    <div>
-      <form @submit.prevent="onSubmit">
-        <!-- <label for="todo">Enter a new Todo</label> -->
-        <!-- <input name="todo" type="text" v-model="newTodo" @keypress="onKeypress" /> -->
-        <input
-          name="todo"
-          type="text"
-          placeholder="Enter a new todo"
-          v-model="newTodo"
-        />
-        <input type="submit" value="Add todo" />
-      </form>
-    </div>
+    <form @submit.prevent="onSubmit">
+      <input
+        name="todo"
+        type="text"
+        placeholder="Enter a new todo"
+        v-model="newTodo"
+      />
+      <input type="submit" value="Add todo" />
+    </form>
 
     <ul>
       <Todo
@@ -20,8 +16,13 @@
         :key="todo.text"
         :text="todo.text"
         :completed="todo.completed"
+        v-on:todoCompleteChange="todoCompleteChange"
       />
     </ul>
+
+    <div class="toolbar">
+      <button @click="onClearAllClick">Clear all</button>
+    </div>
   </div>
 </template>
 
@@ -37,24 +38,26 @@ export default {
 
   data() {
     return {
-      newTodo: "",
-      todos: [
-        {
-          text: "Learn VueJs",
-          completed: false
-        },
-        {
-          text: "Learn Vuetify",
-          completed: true
-        }
-      ]
+      newTodo: null,
+      todos: []
     };
+  },
+
+  //hook on the created component lifecycle stage
+  created: function() {
+    this.loadStateFromLocalStorage();
   },
 
   methods: {
     onClick() {
       console.log("yolo");
       window.alert(this.msg);
+    },
+
+    onClearAllClick() {
+      this.todos.forEach(todo => {
+        todo.completed = true;
+      });
     },
 
     /*onKeypress(event){
@@ -75,7 +78,28 @@ export default {
         text: this.newTodo,
         completed: false
       });
-      this.newTodo.text = "";
+      this.newTodo = "";
+      this.saveStateInLocalStorage();
+    },
+
+    saveStateInLocalStorage() {
+      localStorage.setItem("todo-list", JSON.stringify(this.$data));
+    },
+
+    loadStateFromLocalStorage() {
+      const state = JSON.parse(localStorage.getItem("todo-list"));
+      Object.keys(state).forEach(key => {
+        this[key] = state[key];
+      });
+    },
+
+    todoCompleteChange: function(todoData) {
+      this.todos.forEach((todo, index) => {
+        if (todo.text === todoData.text) {
+          this.todos[index].completed = !todo.completed;
+        }
+      });
+      this.saveStateInLocalStorage();
     }
   }
 };

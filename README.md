@@ -1,4 +1,5 @@
 # todo-list
+v0.1: ajout d'un clear all
 
 ## Project setup
 ```

@@ -9,11 +9,11 @@
 import TodoHeader from "./components/TodoHeader.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     TodoHeader
   }
-}
+};
 </script>
 
 <style lang="scss">
