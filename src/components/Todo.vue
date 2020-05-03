@@ -7,6 +7,7 @@
       @click="onClick"
       v-model="completed"
     /><label :class="{ completed: completed }" :for="text">{{ text }}</label>
+    <img src="" />
   </li>
 </template>
 

@@ -1,19 +1,23 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+  <v-app id="app">
+    <div class="logo-wrapper">
+      <img alt="Vue logo" src="./assets/logo.png" />
+    </div>
     <TodoHeader msg="Welcome to Your Vue.js + TypeScript App" />
-  </div>
+  </v-app>
 </template>
 
-<script>
+<script lang="ts">
+import Vue from "vue";
 import TodoHeader from "./components/TodoHeader.vue";
 
-export default {
+export default Vue.extend({
   name: "App",
+
   components: {
     TodoHeader
   }
-};
+});
 </script>
 
 <style lang="scss">
@@ -24,5 +28,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+img {
+  width: 200px;
 }
 </style>

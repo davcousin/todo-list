@@ -7,7 +7,7 @@
         placeholder="Enter a new todo"
         v-model="newTodo"
       />
-      <input type="submit" value="Add todo" />
+      <input id="add-todo-btn" type="submit" value="Add todo" />
     </form>
 
     <ul>
@@ -115,5 +115,9 @@ export default {
 
 input {
   width: 200px;
+}
+
+#add-todo-btn {
+  width: 100px;
 }
 </style>
