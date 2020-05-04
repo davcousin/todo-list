@@ -6,11 +6,27 @@
           :id="text"
           :name="text"
           type="checkbox"
-          @click="onClick"
+          @click="changeTodoComplete"
           v-model="completed"
-        /><label :class="{ completed: completed }" :for="text">{{ text }}</label>
+        />
+
+        <label v-if="!editMode" :class="{ completed: completed }" :for="text">{{
+          text
+        }}</label>
+        <input
+          class="todo-editor"
+          v-else
+          :id="id"
+          type="text"
+          :value="text"
+          @keyup.enter="updateTodo"
+        />
+
         <v-btn icon text>
-          <v-icon @click="onDeleteTodo" dark>mdi-delete</v-icon>
+          <v-icon @click="toggleEdit" dark>mdi-pencil</v-icon>
+        </v-btn>
+        <v-btn icon text>
+          <v-icon @click="deleteTodo" dark>mdi-delete</v-icon>
         </v-btn>
       </v-row>
     </v-container>
@@ -18,20 +34,36 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "Todo",
 
-  props: ["text", "completed"],
+  data: function() {
+    return {
+      editMode: false
+    };
+  },
+
+  props: ["id", "text", "completed"],
 
   methods: {
-    onClick: function() {
-      //Send an event to the parent component to update the todo state
-      this.$emit("todoCompleteChange", this.$props);
+    toggleEdit: function() {
+      this.editMode = !this.editMode;
+      console.log("editMode:", this.editMode);
     },
 
-    onDeleteTodo: function() {
-      //Send an event to the parent component to update the todo state
-      this.$emit("deleteTodo", this.$props);
+    ...mapActions(["changeTodoComplete", "deleteTodo"]),
+    deleteTodo: function() {
+      this.$store.dispatch("deleteTodo", this.text);
+    },
+
+    updateTodo: function(event) {
+      this.$store.dispatch({
+        type: "updateTodo",
+        todoText: this.text,
+        newText: event.target.value
+      });
+      this.editMode = !this.editMode;
     }
   }
 };
@@ -44,5 +76,9 @@ li {
 
 .completed {
   text-decoration: line-through;
+}
+
+.todo-editor {
+  border: 1px solid black;
 }
 </style>

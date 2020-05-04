@@ -1,4 +1,9 @@
 # todo-list
+v0.2:
+- support of VueX
+- ajout de l'edit d'un todo
+- ajout du delete d'un todo
+
 v0.1: 
 - ajout d'un clear all
 - persistence dans le local storage
