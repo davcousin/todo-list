@@ -20,7 +20,7 @@
 <script>
 import TodoList from "./TodoList";
 import TodoToolbar from "./TodoToolbar";
-import { mapState, mapActions } from "vuex";
+import { mapState } from "vuex";
 
 export default {
   name: "TodoHeader",

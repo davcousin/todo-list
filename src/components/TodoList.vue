@@ -16,7 +16,6 @@ import { mapState } from "vuex";
 export default {
   name: "TodoList",
 
-
   components: {
     Todo
   },
@@ -24,11 +23,12 @@ export default {
   computed: {
     ...mapState(["todos", "filter"]),
     filteredTodos: function() {
+      const filter = this.filter;
       return this.todos.filter(
         todo =>
-          this.filter === "all" ||
-          (this.filter === "completed" && todo.complete) ||
-          (this.filter === "active" && !todo.complete)
+          filter === "all" ||
+          (filter === "completed" && todo.completed) ||
+          (filter === "active" && !todo.completed)
       );
     }
   }
