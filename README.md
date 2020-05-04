@@ -1,4 +1,7 @@
 # todo-list
+v0.3:
+- refonte de l'UI Avec Vuetify
+
 v0.2:
 - support of VueX
 - ajout de l'edit d'un todo
