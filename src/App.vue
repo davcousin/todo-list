@@ -1,23 +1,24 @@
 <template>
   <v-app id="app">
-    <!-- <v-app-bar
-      app
-      color="indigo"
-      dark
-    >
-      <v-toolbar-title class="todo-app-title">Todo List</v-toolbar-title>
-    </v-app-bar> -->
-
     <v-content>
-      <v-container class="fill-height app-container" fluid style="align-items:start">
-        <v-row align="start" justify="center" no-gutters>
-          <v-col>
-            <div id="todo-app-title">Todo List</div>
-            <TodoHeader msg="Welcome to Your Vue.js + TypeScript App" />
+      <v-container
+        class="fill-height app-container"
+        fluid
+        style="align-items:start"
+      >
+        <v-row align="start" justify="center">
+          <v-col cols="8">
+            <div id="todo-app-title" class="mb-4">Todo List</div>
 
-            <TodoList />
+            <v-row align="start" justify="center">
+              <v-col cols="10">
+                <TodoHeader />
 
-            <TodoToolbar />
+                <TodoList />
+
+                <TodoToolbar />
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </v-container>
@@ -48,15 +49,11 @@ export default Vue.extend({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: grey;
+  background-color: #e6e6e6;
   //margin-top: 60px;
   /*margin: 8px;
   border-radius: 4px;
   padding: 8px;*/
-}
-
-.app-container {
-  //background-color: white;
 }
 
 #todo-app-title {
@@ -64,11 +61,12 @@ export default Vue.extend({
   font-size: 48px;
   color: #326590;
   background-color: #474344;
+  border-radius: 8px;
 }
 
-.col{
-  border:1px solid black;
-  border-radius: 4px;;
+.col {
+  //border:1px solid black;
+  border-radius: 8px;
   background-color: white;
 }
 

@@ -6,9 +6,9 @@
     </v-btn>
 
     <v-radio-group v-model="filter" @change="filterChange" row>
-      <v-radio :key="all" label="All" value="all" checked></v-radio>
-      <v-radio :key="completed" label="Completed" value="completed"></v-radio>
-      <v-radio :key="active" label="Active" value="active"></v-radio>
+      <v-radio label="All" value="all" checked></v-radio>
+      <v-radio label="Completed" value="completed"></v-radio>
+      <v-radio label="Active" value="active"></v-radio>
     </v-radio-group>
   </div>
 </template>

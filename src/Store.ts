@@ -24,7 +24,7 @@ const initializeState = function() {
     initialState: AppState = {
       filter: "all",
       newTodo: "",
-      addTodoBtnText: "Add todo",
+      addTodoBtnText: "Enter a new todo",
       todos: []
     };
 
