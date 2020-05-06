@@ -10,9 +10,13 @@
           v-model="completed"
         />
 
-        <label v-if="!editMode" :class="{ completed: completed }" :for="text">{{
-          text
-        }}</label>
+        <label
+          v-if="!editMode"
+          class="todo-label"
+          :class="{ completed: completed }"
+          :for="text"
+          >{{ text }}</label
+        >
         <input
           class="todo-editor"
           v-else
@@ -81,4 +85,11 @@ li {
 .todo-editor {
   border: 1px solid black;
 }
+
+.todo-label {
+  font-family: "Amatic SC", serif;
+  font-weight: bold;
+  font-size: 25px;;
+}
+
 </style>

@@ -10,25 +10,14 @@
       />
       <input id="add-todo-btn" type="submit" :value="addTodoBtnText" />
     </form>
-
-    <TodoList />
-
-    <TodoToolbar />
   </div>
 </template>
 
 <script>
-import TodoList from "./TodoList";
-import TodoToolbar from "./TodoToolbar";
 import { mapState } from "vuex";
 
 export default {
   name: "TodoHeader",
-
-  components: {
-    TodoList,
-    TodoToolbar
-  },
 
   computed: mapState(["addTodoBtnText", "newTodo"]),
 
