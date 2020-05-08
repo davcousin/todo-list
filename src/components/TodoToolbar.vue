@@ -3,7 +3,7 @@
     <v-radio-group
       :value="filter"
       @change="filterChange"
-      class="pt-0"
+      class="pt-0 mt-0"
       hide-details
       row
     >

@@ -1,9 +1,9 @@
 <template>
   <v-app id="app">
     <v-content>
-      <v-container fluid>
+      <v-container class="main-container" fluid>
         <v-row align="start" justify="center">
-          <v-col cols="8" class="pa-0">
+          <v-col cols="8" class="content-col pa-0 d-flex flex-column">
             <div id="todo-app-title">Todo List</div>
 
             <v-row align="start" justify="center" dense>
@@ -46,15 +46,17 @@ export default Vue.extend({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   background-color: white;
-  //margin-top: 60px;
-  /*margin: 8px;
-  border-radius: 4px;
-  padding: 8px;*/
+}
+
+#app .main-container,
+#app .container .row,
+#app .container .row .content-col {
+  height: 100%;
 }
 
 #todo-app-title {
   font-family: "Fredericka the Great", serif;
-  font-size: 58px;
+  font-size: 70px;
   color: #326590;
   background-color: #474344;
   border-top-left-radius: 8px;

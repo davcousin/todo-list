@@ -1,10 +1,9 @@
 <template>
   <v-container
     fluid
-    @mouseover="setIsHovered(true)"
-    @mouseout="setIsHovered(false)"
+    
   >
-    <v-row align="center" class="mb-2" no-gutters>
+    <v-row align="end" class="mb-2 flex-nowrap" no-gutters>
       <div>
         <input
           class="mt-0"
@@ -16,7 +15,7 @@
           v-model="completed"
         /><label :for="text"><span></span></label>
       </div>
-      <div class="flex-grow-1 text-label-col d-flex">
+      <div class="flex-grow-1 text-label-col d-flex" >
         <label
           v-if="!editMode"
           class="todo-label"
@@ -33,11 +32,12 @@
           @keyup.enter="updateTodo"
         />
       </div>
-      <div class="btn-wrapper d-flex ml-auto" @mouseover="setIsHovered(true)">
-        <v-btn icon text v-if="isHovered">
+      <div class="btn-wrapper d-flex ml-auto" 
+         >
+        <v-btn icon text>
           <v-icon @click="toggleEdit" dark>mdi-pencil</v-icon>
         </v-btn>
-        <v-btn icon text v-if="isHovered">
+        <v-btn icon text>
           <v-icon @click="deleteTodo" dark>mdi-delete</v-icon>
         </v-btn>
       </div>
@@ -94,12 +94,17 @@ export default {
 
 .todo-editor {
   border: 1px solid black;
+  font-size: 23px;
 }
 
-.todo-label {
+.todo-label{
+  font-size: 25px;
+}
+
+.todo-label,
+.todo-editor {
   font-family: "Amatic SC", serif;
   font-weight: bold;
-  font-size: 25px;
 }
 
 .text-label-col,
@@ -127,6 +132,6 @@ input[type="checkbox"]:checked + label {
   margin: -2px 10px 0 0;
   background: url("../assets/checkbox1-checked.png") left top no-repeat;
   background-size: contain;
-  cursor:pointer;
+  cursor: pointer;
 }
 </style>
