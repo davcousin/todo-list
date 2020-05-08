@@ -1,19 +1,22 @@
 <template>
-  <!-- <v-row >
-    <v-col  ></v-col>    
-  <v-row> -->
-  <div class="toolbar">
-    <v-btn @click="onClearAllClick">
-      Clear all
-      <v-icon>mdi-check-outline</v-icon>
-    </v-btn>
-
-    <v-radio-group :value="filter" @change="filterChange" row>
+  <v-container id="ctn" class="d-flex justify-space-between align-center p-0">
+    <v-radio-group
+      :value="filter"
+      @change="filterChange"
+      class="pt-0"
+      hide-details
+      row
+    >
       <v-radio label="All" value="all" checked></v-radio>
       <v-radio label="Completed" value="completed"></v-radio>
       <v-radio label="Active" value="active"></v-radio>
     </v-radio-group>
-  </div>
+
+    <v-btn @click="onClearAllClick" outlined>
+      Clear all
+      <v-icon>mdi-check-outline</v-icon>
+    </v-btn>
+  </v-container>
 </template>
 
 <script>
@@ -36,4 +39,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+#ctn {
+  border-top: 1px solid grey;
+  background-color: #474344;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+</style>

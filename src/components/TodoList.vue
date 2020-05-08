@@ -1,12 +1,13 @@
 <template>
-  <ul>
+  <!-- add a container as root because impossible to have a root with a v-for directive -->
+  <v-container class="todo-list ma-0 pa-0">
     <Todo
       v-for="todo in filteredTodos"
       :key="todo.id"
       :text="todo.text"
       :completed="todo.completed"
     />
-  </ul>
+  </v-container>
 </template>
 
 <script>

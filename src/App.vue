@@ -1,21 +1,23 @@
 <template>
   <v-app id="app">
     <v-content>
-      <v-row align="start" justify="center">
-        <v-col cols="8">
-          <div id="todo-app-title" class="mb-4">Todo List</div>
+      <v-container fluid>
+        <v-row align="start" justify="center">
+          <v-col cols="8" class="pa-0">
+            <div id="todo-app-title">Todo List</div>
 
-          <v-row align="start" justify="center">
-            <v-col cols="10">
-              <TodoToolbar />
+            <v-row align="start" justify="center" dense>
+              <v-col cols="11">
+                <TodoList />
 
-              <TodoHeader />
+                <TodoHeader class="mt-12" />
+              </v-col>
+            </v-row>
 
-              <TodoList />
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
+            <TodoToolbar />
+          </v-col>
+        </v-row>
+      </v-container>
     </v-content>
   </v-app>
 </template>
@@ -43,7 +45,7 @@ export default Vue.extend({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  background-color: #e6e6e6;
+  background-color: white;
   //margin-top: 60px;
   /*margin: 8px;
   border-radius: 4px;
@@ -55,13 +57,14 @@ export default Vue.extend({
   font-size: 58px;
   color: #326590;
   background-color: #474344;
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .col {
   //border:1px solid black;
   border-radius: 8px;
-  background-color: white;
+  background-color: #e6e6e6;
 }
 
 img {

@@ -1,15 +1,22 @@
 <template>
-  <li>
-    <v-container fluid>
-      <v-row justify="space-around" class="mb-2">
+  <v-container
+    fluid
+    @mouseover="setIsHovered(true)"
+    @mouseout="setIsHovered(false)"
+  >
+    <v-row align="center" class="mb-2" no-gutters>
+      <div>
         <input
+          class="mt-0"
+          hide-details
           :id="text"
           :name="text"
           type="checkbox"
           @click="changeTodoComplete"
           v-model="completed"
-        />
-
+        /><label :for="text"><span></span></label>
+      </div>
+      <div class="flex-grow-1 text-label-col d-flex">
         <label
           v-if="!editMode"
           class="todo-label"
@@ -25,16 +32,17 @@
           :value="text"
           @keyup.enter="updateTodo"
         />
-
-        <v-btn icon text>
+      </div>
+      <div class="btn-wrapper d-flex ml-auto" @mouseover="setIsHovered(true)">
+        <v-btn icon text v-if="isHovered">
           <v-icon @click="toggleEdit" dark>mdi-pencil</v-icon>
         </v-btn>
-        <v-btn icon text>
+        <v-btn icon text v-if="isHovered">
           <v-icon @click="deleteTodo" dark>mdi-delete</v-icon>
         </v-btn>
-      </v-row>
-    </v-container>
-  </li>
+      </div>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -44,7 +52,8 @@ export default {
 
   data: function() {
     return {
-      editMode: false
+      editMode: false,
+      isHovered: false
     };
   },
 
@@ -68,16 +77,17 @@ export default {
         newText: event.target.value
       });
       this.editMode = !this.editMode;
+    },
+
+    setIsHovered: function(state) {
+      console.log("setIsHovered:", state);
+      this.isHovered = state;
     }
   }
 };
 </script>
 
 <style scoped>
-li {
-  list-style: none;
-}
-
 .completed {
   text-decoration: line-through;
 }
@@ -90,5 +100,33 @@ li {
   font-family: "Amatic SC", serif;
   font-weight: bold;
   font-size: 25px;
+}
+
+.text-label-col,
+.btn-wrapper {
+  border-bottom: 1px solid black;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  width: 29px;
+  height: 29px;
+  margin: 5px 19px 0 0;
+  vertical-align: middle;
+  background: url("../assets/checkbox1.png") left top no-repeat;
+  background-size: contain;
+  cursor: pointer;
+}
+input[type="checkbox"]:checked + label {
+  width: 40px;
+  height: 40px;
+  margin: -2px 10px 0 0;
+  background: url("../assets/checkbox1-checked.png") left top no-repeat;
+  background-size: contain;
+  cursor:pointer;
 }
 </style>

@@ -1,12 +1,14 @@
 <template>
-  <v-text-field
-    append-icon="mdi-plus-circle-outline"
-    :value="newTodo"
-    @input="setNewTodo"
-    @keydown.enter="addTodo"
-    :placeholder="addTodoBtnText"
-    @click:append="addTodo"
-  ></v-text-field>
+  <v-container>
+    <v-text-field
+      append-icon="mdi-plus-circle-outline"
+      :value="newTodo"
+      @input="setNewTodo"
+      @keydown.enter="addTodo"
+      :placeholder="addTodoBtnText"
+      @click:append="addTodo"
+    ></v-text-field>
+  </v-container>
 </template>
 
 <script>
