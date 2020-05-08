@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    
-  >
+  <v-container fluid>
     <v-row align="end" class="mb-2 flex-nowrap" no-gutters>
       <div>
         <input
@@ -15,7 +12,7 @@
           v-model="completed"
         /><label :for="text"><span></span></label>
       </div>
-      <div class="flex-grow-1 text-label-col d-flex" >
+      <div class="flex-grow-1 text-label-col d-flex">
         <label
           v-if="!editMode"
           class="todo-label"
@@ -32,8 +29,7 @@
           @keyup.enter="updateTodo"
         />
       </div>
-      <div class="btn-wrapper d-flex ml-auto" 
-         >
+      <div class="btn-wrapper d-flex ml-auto">
         <v-btn icon text>
           <v-icon @click="toggleEdit" dark>mdi-pencil</v-icon>
         </v-btn>
@@ -97,7 +93,7 @@ export default {
   font-size: 23px;
 }
 
-.todo-label{
+.todo-label {
   font-size: 25px;
 }
 
