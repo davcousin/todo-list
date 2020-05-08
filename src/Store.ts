@@ -10,7 +10,7 @@ interface Todo {
 }
 
 interface AppState {
-  filter: string,
+  filter: string;
   newTodo: string;
   addTodoBtnText: string;
   //{id:0, text: "Learn VueJs", completed: false}
@@ -85,14 +85,14 @@ const store = new Vuex.Store({
     },
 
     clearAll(state) {
-      state.todos.forEach((todo) => {
-          todo.completed = true;
+      state.todos.forEach(todo => {
+        todo.completed = true;
       });
       saveStateInLocalStorage(state);
     },
 
     updateTodo(state, payload) {
-      state.todos.forEach((todo) => {
+      state.todos.forEach(todo => {
         if (todo.text === payload.todoText) {
           todo.text = payload.newText;
         }
@@ -101,7 +101,7 @@ const store = new Vuex.Store({
     },
 
     filterChange(state, newFilter) {
-      state.filter = newFilter;      
+      state.filter = newFilter;
     }
   },
   actions: {

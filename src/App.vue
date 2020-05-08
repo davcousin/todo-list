@@ -1,27 +1,21 @@
 <template>
   <v-app id="app">
     <v-content>
-      <v-container
-        class="fill-height app-container"
-        fluid
-        style="align-items:start"
-      >
-        <v-row align="start" justify="center">
-          <v-col cols="8">
-            <div id="todo-app-title" class="mb-4">Todo List</div>
+      <v-row align="start" justify="center">
+        <v-col cols="8">
+          <div id="todo-app-title" class="mb-4">Todo List</div>
 
-            <v-row align="start" justify="center">
-              <v-col cols="10">
-                <TodoHeader />
+          <v-row align="start" justify="center">
+            <v-col cols="10">
+              <TodoToolbar />
 
-                <TodoList />
+              <TodoHeader />
 
-                <TodoToolbar />
-              </v-col>
-            </v-row>
-          </v-col>
-        </v-row>
-      </v-container>
+              <TodoList />
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
     </v-content>
   </v-app>
 </template>
@@ -58,7 +52,7 @@ export default Vue.extend({
 
 #todo-app-title {
   font-family: "Fredericka the Great", serif;
-  font-size: 48px;
+  font-size: 58px;
   color: #326590;
   background-color: #474344;
   border-radius: 8px;

@@ -89,7 +89,6 @@ li {
 .todo-label {
   font-family: "Amatic SC", serif;
   font-weight: bold;
-  font-size: 25px;;
+  font-size: 25px;
 }
-
 </style>
