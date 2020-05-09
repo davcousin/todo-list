@@ -33,8 +33,12 @@ const initializeState = function() {
     initialState[key] = state[key];
   });*/
   //dirty, don't know how to do better
-  initialState.newTodo = state.newTodo;
-  initialState.todos = state.todos;
+  //only copy the state if some exists
+  if(state){
+    initialState.newTodo = state.newTodo;
+    initialState.todos = state.todos;
+  }
+  
   return initialState;
 };
 
