@@ -1,6 +1,7 @@
 # todo-list
 v0.3:
 - refonte de l'UI Avec Vuetify
+- app bouclée \o/
 
 v0.2:
 - support of VueX
