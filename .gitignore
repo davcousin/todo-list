@@ -21,3 +21,5 @@ yarn-error.log*
 *.sw?
 
 todo-list.code-workspace
+output.js
+ui inspi/
